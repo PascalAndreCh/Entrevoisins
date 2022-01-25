@@ -140,7 +140,6 @@
                 android:gravity="center"
                 android:paddingTop="8dp"
                 android:layout_margin="8dp"
-
                 android:layout_weight="1"/>
 
             <View
@@ -166,6 +165,7 @@
 
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/starSelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:backgroundTint="#FFFFFF"
