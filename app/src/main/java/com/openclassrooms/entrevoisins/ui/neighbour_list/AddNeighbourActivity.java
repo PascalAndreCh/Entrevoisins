@@ -55,14 +55,17 @@ public class AddNeighbourActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home : {
+// clic sur le bouton retour arriere
                 finish();
                 return true;
             }
         }
+// pas trouvé quand on y passe ?
         return super.onOptionsItemSelected(item);
     }
 
     private void init() {
+// pas trouvé quand on y passe
         mNeighbourImage = randomImage();
         Glide.with(this).load(mNeighbourImage).placeholder(R.drawable.ic_account)
                 .apply(RequestOptions.circleCropTransform()).into(avatar);
@@ -78,7 +81,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
         });
 
     }
-
+// clic sur le bouton de création
     @OnClick(R.id.create)
     void addNeighbour() {
         Neighbour neighbour = new Neighbour(
