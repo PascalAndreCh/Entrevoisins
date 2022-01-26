@@ -5,9 +5,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
-public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
+public class ListDetailNeighbourPagerAdapter extends FragmentPagerAdapter {
+    // TODO
 
-    public ListNeighbourPagerAdapter(FragmentManager fm) {
+    public ListDetailNeighbourPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -18,14 +19,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
-            return NeighbourFragment.newInstance();
-        } else if (position == 1) {
-            return NeighbourFragment.newInstance();
-            // return DetailNeighbourFragment.newInstance();
-        } else {
-            return null;
-        }
+        return DetailNeighbourFragment.newInstance();
     }
 
     /**
@@ -34,6 +28,6 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public int getCount() {
-        return 2;
+        return 1;
     }
 }
