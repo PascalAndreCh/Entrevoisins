@@ -12,7 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ListDetailNeighbourActivity extends AppCompatActivity {
+public class ListFavoriNeighbourActivity extends AppCompatActivity {
     // TODO
 
     // UI Components
@@ -23,16 +23,16 @@ public class ListDetailNeighbourActivity extends AppCompatActivity {
     @BindView(R.id.container)
     ViewPager mViewPager;
 
-    ListDetailNeighbourPagerAdapter mPagerAdapter;
+    ListFavoriNeighbourPagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_detail_neighbour);
+        setContentView(R.layout.activity_list_favori_neighbour);
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
-        mPagerAdapter = new ListDetailNeighbourPagerAdapter(getSupportFragmentManager());
+        mPagerAdapter = new ListFavoriNeighbourPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));

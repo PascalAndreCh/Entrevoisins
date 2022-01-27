@@ -21,8 +21,8 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             return NeighbourFragment.newInstance();
         } else if (position == 1) {
-            return NeighbourFragment.newInstance();
-            // return DetailNeighbourFragment.newInstance();
+            // return NeighbourFragment.newInstance();
+            return FavoriNeighbourFragment.newInstance();
         } else {
             return null;
         }

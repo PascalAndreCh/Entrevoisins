@@ -25,10 +25,10 @@ public class Neighbour {
     /** About me */
     private String aboutMe;
 
+    // TODO ajout d'un booléen favori oui = true, non = false
     /** Favori */
     private boolean favor;
 
-    // TODO ajout d'un booléen favori oui = true, non = false
 
     /**
      * Constructor
@@ -99,6 +99,8 @@ public class Neighbour {
 
     public void setFavor(boolean favor) { this.favor = favor; }
 
+
+    // TODO à quoi sert les 2 override en dessous ?
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

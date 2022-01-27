@@ -55,8 +55,9 @@ public class DetailNeighbourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_neighbour);
         ButterKnife.bind(this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mApiService = DI.getNeighbourApiService();
+
 
     }
 

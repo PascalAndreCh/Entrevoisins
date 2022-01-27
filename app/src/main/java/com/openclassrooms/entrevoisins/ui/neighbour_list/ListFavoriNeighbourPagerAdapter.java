@@ -5,10 +5,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
-public class ListDetailNeighbourPagerAdapter extends FragmentPagerAdapter {
+public class ListFavoriNeighbourPagerAdapter extends FragmentPagerAdapter {
     // TODO
 
-    public ListDetailNeighbourPagerAdapter(FragmentManager fm) {
+    public ListFavoriNeighbourPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -19,7 +19,7 @@ public class ListDetailNeighbourPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public Fragment getItem(int position) {
-        return DetailNeighbourFragment.newInstance();
+        return FavoriNeighbourFragment.newInstance();
     }
 
     /**

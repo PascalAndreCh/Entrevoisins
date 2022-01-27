@@ -22,7 +22,7 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.List;
 
 
-public class DetailNeighbourFragment extends Fragment {
+public class FavoriNeighbourFragment extends Fragment {
     // TODO
 
     private NeighbourApiService mApiService;
@@ -32,10 +32,10 @@ public class DetailNeighbourFragment extends Fragment {
 
     /**
      * Create and return a new instance
-     * @return @{@link DetailNeighbourFragment}
+     * @return @{@link FavoriNeighbourFragment}
      */
-    public static DetailNeighbourFragment newInstance() {
-        DetailNeighbourFragment fragment = new DetailNeighbourFragment();
+    public static FavoriNeighbourFragment newInstance() {
+        FavoriNeighbourFragment fragment = new FavoriNeighbourFragment();
         return fragment;
     }
 
@@ -48,7 +48,7 @@ public class DetailNeighbourFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail_neighbour_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_favori_neighbour_list, container, false);
         Context context = view.getContext();
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -60,8 +60,8 @@ public class DetailNeighbourFragment extends Fragment {
      * Init the List of neighbours
      */
     private void initList() {
-        mNeighbours = mApiService.getNeighbours();
-        mRecyclerView.setAdapter(new MyDetailNeighbourRecyclerViewAdapter(mNeighbours));
+        mNeighbours = mApiService.getFavoriNeighbour();
+        mRecyclerView.setAdapter(new MyFavoriNeighbourRecyclerViewAdapter(mNeighbours));
     }
 
     @Override

@@ -21,18 +21,18 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MyDetailNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyDetailNeighbourRecyclerViewAdapter.ViewHolder> {
+public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
 
-    public MyDetailNeighbourRecyclerViewAdapter(List<Neighbour> items) {
+    public MyFavoriNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_detail_neighbour, parent, false);
+                .inflate(R.layout.fragment_favori_neighbour, parent, false);
         return new ViewHolder(view);
     }
 

@@ -29,10 +29,14 @@
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/activity_detail_neighbour3.xml" value="0.1" />
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/activity_detail_neighbourOriginal.xml" value="0.36666666666666664" />
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/activity_list_detail_neighbour.xml" value="0.20520833333333333" />
+        <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/activity_list_favori_neighbour.xml" value="0.20520833333333333" />
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/activity_list_neighbour.xml" value="0.17831813576494426" />
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/fragment_detail_neighbour.xml" value="0.20520833333333333" />
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/fragment_detail_neighbour_list.xml" value="0.20520833333333333" />
+        <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/fragment_favori_neighbour.xml" value="0.20520833333333333" />
+        <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/fragment_favori_neighbour_list.xml" value="0.20520833333333333" />
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/fragment_list_detail_neighbour.xml" value="0.20520833333333333" />
+        <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/fragment_list_favori_neighbour.xml" value="0.20520833333333333" />
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/fragment_list_neighbour.xml" value="0.16111111111111112" />
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/fragment_neighbour.xml" value="0.2" />
         <entry key="..\:/Projet-P3/P3/Entrevoisins/app/src/main/res/layout/fragment_neighbour_list.xml" value="0.16111111111111112" />
