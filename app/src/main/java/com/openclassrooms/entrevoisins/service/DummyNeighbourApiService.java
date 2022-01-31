@@ -39,13 +39,12 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
 
 
-    // TODO code rajouté en dessous
+    //TODO code rajouté en dessous
     // création liste des favoris
 
     @Override
     public List<Neighbour> getFavoriNeighbour () {
         ArrayList<Neighbour> favoriNeighbour = new ArrayList<>();
-        favoriNeighbour.clear();
         int j = 0;
         for (Neighbour  i : neighbours) {
             if (i.getFavor()) {
