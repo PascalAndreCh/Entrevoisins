@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,24 +29,27 @@ import butterknife.OnClick;
 public class DetailNeighbourActivity extends AppCompatActivity {
     // TODO
 
-    @BindView(R.id.avatarFav)
-    ImageView avatarFav;
-    @BindView(R.id.nameLytFav)
-    TextView nameViewFav;
-    @BindView(R.id.nameLytFavBis)
-    TextView nameBisViewFav;
-    @BindView(R.id.phoneNumberLytFav)
-    TextView phoneViewFav;
-    @BindView(R.id.addressLytFav)
-    TextView addressViewFav;
-    @BindView(R.id.aboutMeLytFav)
-    TextView aboutMeViewFav;
+    public static final String NEIGHBOUR_POSITION_KEY = "NEIGHBOUR_POSITION_KEY";
+
+    @BindView(R.id.avatar)
+    ImageView avatar;
+    @BindView(R.id.name)
+    TextView name;
+    @BindView(R.id.phoneNumber)
+    TextView numberPhone;
+    @BindView(R.id.address)
+    TextView address;
+    @BindView(R.id.aboutMe)
+    TextView aboutMe;
     @BindView(R.id.button_back)
-    MaterialButton backButton;
+    ImageButton backButton;
+    @BindView(R.id.nameFacebook)
+    TextView facebookName;
+    @BindView(R.id.nameBis)
+    TextView bisName;
     @BindView(R.id.starSelect)
-    FloatingActionButton selectFav;
-    @BindView(R.id.nameLytFavFacebook)
-    TextView facebookViewFav;
+    FloatingActionButton selectStar;
+
 
     private NeighbourApiService mApiService;
     private String mAdresseInternet;
@@ -55,42 +59,49 @@ public class DetailNeighbourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_neighbour);
         ButterKnife.bind(this);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mApiService = DI.getNeighbourApiService();
-
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home : {
-// clic sur le bouton retour arriere
-                finish();
-                return true;
-            }
+        int position = getIntent().getIntExtra(NEIGHBOUR_POSITION_KEY, -1);
+        if (position == -1) {
+            finish();
+            return;
         }
-// pas trouvé quand on y passe ?
-        return super.onOptionsItemSelected(item);
+        // si clic sur liste favori, alors récupérer utilisateur dans liste des favoris
+        // récupérer id du voisin
+
+        Neighbour neighbour = mApiService.getNeighbours().get(position);
+        name.setText(neighbour.getName());
+        bisName.setText(neighbour.getName());
+        address.setText(neighbour.getAddress());
+        numberPhone.setText(neighbour.getPhoneNumber());
+        aboutMe.setText(neighbour.getAboutMe());
+        mAdresseInternet = "www.facebook.fr/" + neighbour.getName();
+        facebookName.setText(mAdresseInternet);
+        // facebookName.setText("www.facebook.fr/"+neighbour.getName());
+        if (neighbour.getFavor()) {
+            selectStar.setImageResource(R.drawable.ic_star_yellow_24dp);
+        } else {
+            selectStar.setImageResource(R.drawable.ic_star_white_24dp);
+        }
+
+
+        backButton.setOnClickListener(v -> finish());
+
+        selectStar.setOnClickListener(v -> {
+            if (neighbour.getFavor()) {
+ //               mApiService.deleteFavoriNeighbour(neighbour);
+                neighbour.setFavor(false);
+                selectStar.setImageResource(R.drawable.ic_star_white_24dp);
+            } else {
+ //               mApiService.createFavoriNeighbour(neighbour);
+                neighbour.setFavor(true);
+                selectStar.setImageResource(R.drawable.ic_star_yellow_24dp);
+            }
+                });
+
+        Glide.with(this)
+                .load(neighbour.getAvatarUrl())
+                .centerCrop()
+                .into(avatar);
     }
 
-
-
-
-    /**
-     * Generate a random image. Useful to mock image picker
-     * @return String
-     */
-    String randomImage() {
-        return "https://i.pravatar.cc/150?u="+ System.currentTimeMillis();
-    }
-
-    /**
-     * Used to navigate to this activity
-     * @param activity
-     */
-    public static void navigate(FragmentActivity activity) {
-        Intent intent = new Intent(activity, DetailNeighbourActivity.class);
-        ActivityCompat.startActivity(activity, intent, null);
-    }
 }

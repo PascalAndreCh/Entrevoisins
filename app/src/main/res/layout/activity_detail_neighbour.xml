@@ -10,7 +10,7 @@
     tools:context=".ui.neighbour_list.DetailNeighbourActivity">
 
     <ImageView
-        android:id="@+id/avatarFav"
+        android:id="@+id/avatar"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="#eaeff0"
@@ -34,7 +34,7 @@
 
 
     <TextView
-        android:id="@+id/nameLytFav"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -44,7 +44,7 @@
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="245dp" />
+        app:layout_constraintBottom_toBottomOf="@id/avatar"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/CartOne"
@@ -52,7 +52,7 @@
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/avatarFav"
+        app:layout_constraintTop_toBottomOf="@id/avatar"
         android:layout_margin="16dp"
         app:cardCornerRadius="8dp"
         >
@@ -63,7 +63,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/nameLytFavBis"
+                android:id="@+id/nameBis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -78,7 +78,7 @@
                 android:background="#eaeff0"/>
 
             <TextView
-                android:id="@+id/addressLytFav"
+                android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -89,7 +89,7 @@
                 android:layout_weight="2" />
 
             <TextView
-                android:id="@+id/phoneNumberLytFav"
+                android:id="@+id/phoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -101,7 +101,7 @@
 
 
                 <TextView
-                    android:id="@+id/nameLytFavFacebook"
+                    android:id="@+id/nameFacebook"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
@@ -148,7 +148,7 @@
                 android:background="#eaeff0"/>
 
             <TextView
-                android:id="@+id/aboutMeLytFav"
+                android:id="@+id/aboutMe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -170,9 +170,9 @@
         android:layout_height="wrap_content"
         app:backgroundTint="#FFFFFF"
         android:src="@drawable/ic_star_yellow_24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/avatarFav"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatarFav"
+        app:layout_constraintTop_toBottomOf="@+id/avatar"
         android:layout_margin="16dp"/>
 
 

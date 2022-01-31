@@ -16,12 +16,13 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      * @param position
      * @return
      */
+
+    // TODO
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
             return NeighbourFragment.newInstance();
         } else if (position == 1) {
-            // return NeighbourFragment.newInstance();
             return FavoriNeighbourFragment.newInstance();
         } else {
             return null;
