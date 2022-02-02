@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ import butterknife.ButterKnife;
 public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
+
 
 
     public MyFavoriNeighbourRecyclerViewAdapter(List<Neighbour> items) {
@@ -53,6 +55,15 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
         holder.mStarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (neighbour.getFavor()) {
+                    //               mApiService.deleteFavoriNeighbour(neighbour);
+                    neighbour.setFavor(false);
+                    holder.mStarButton.setImageResource(R.drawable.ic_star_white_24dp);
+                } else {
+                    //               mApiService.createFavoriNeighbour(neighbour);
+                    neighbour.setFavor(true);
+                    holder.mStarButton.setImageResource(R.drawable.ic_star_yellow_24dp);
+                }
  //               EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
             }
         });

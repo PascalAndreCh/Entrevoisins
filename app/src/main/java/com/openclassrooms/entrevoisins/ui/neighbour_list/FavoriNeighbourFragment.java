@@ -43,6 +43,8 @@ public class FavoriNeighbourFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mApiService = DI.getNeighbourApiService();
+        //TODO 02/02/22
+        //initList();
     }
 
     @Override
