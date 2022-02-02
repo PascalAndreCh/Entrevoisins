@@ -30,6 +30,8 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     // TODO
 
     public static final String NEIGHBOUR_POSITION_KEY = "NEIGHBOUR_POSITION_KEY";
+    public static final String PROVENANCE = "PROVENANCE";
+    Neighbour neighbour;
 
     @BindView(R.id.avatar)
     ImageView avatar;
@@ -53,6 +55,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
     private NeighbourApiService mApiService;
     private String mAdresseInternet;
+    int provenanc = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +70,30 @@ public class DetailNeighbourActivity extends AppCompatActivity {
         }
         // si clic sur liste favori, alors récupérer utilisateur dans liste des favoris
         // récupérer id du voisin
+        provenanc = getIntent().getIntExtra(PROVENANCE, 1);
 
-        Neighbour neighbour = mApiService.getNeighbours().get(position);
+        if (provenanc == 1) {
+            neighbour = mApiService.getNeighbours().get(position);
+
+        } else if (provenanc == 2) {
+            neighbour = mApiService.getFavoriNeighbour().get(position);
+
+        } else {
+            neighbour = mApiService.getNeighbours().get(position);
+        }
+ //       switch (provenanc) {
+ //           case 1 :
+ //               Neighbour neighbour = mApiService.getNeighbours().get(position);
+ //               break;
+ //           case 2 :
+ //               Neighbour neighbour = mApiService.getFavoriNeighbour().get(position);
+ //               break;
+ //           default :
+ //               Neighbour neighbour = mApiService.getNeighbours().get(position);
+ //       }
+
+ //       Neighbour neighbour = mApiService.getNeighbours().get(position);
+
         name.setText(neighbour.getName());
         bisName.setText(neighbour.getName());
         address.setText(neighbour.getAddress());

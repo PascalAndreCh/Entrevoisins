@@ -1,6 +1,7 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.NEIGHBOUR_POSITION_KEY;
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.PROVENANCE;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -27,7 +28,6 @@ import butterknife.ButterKnife;
 public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-//    private static final int DETAIL_NEIGHBOUR = 1;
 
 
     public MyFavoriNeighbourRecyclerViewAdapter(List<Neighbour> items) {
@@ -57,14 +57,13 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
             }
         });
 
-
-        // holder.mNeighbourAvatar.setOnClickListener(new View.OnClickListener() {
           holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent detailNeighbourIntent = new Intent (v.getContext(), DetailNeighbourActivity.class);
                 detailNeighbourIntent.putExtra(NEIGHBOUR_POSITION_KEY, holder.getAdapterPosition());
+                detailNeighbourIntent.putExtra(PROVENANCE, 2);
                 v.getContext().startActivity(detailNeighbourIntent);
               }
         });
