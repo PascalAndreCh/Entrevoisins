@@ -92,8 +92,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
  //               Neighbour neighbour = mApiService.getNeighbours().get(position);
  //       }
 
- //       Neighbour neighbour = mApiService.getNeighbours().get(position);
-
         name.setText(neighbour.getName());
         bisName.setText(neighbour.getName());
         address.setText(neighbour.getAddress());
@@ -113,11 +111,11 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
         selectStar.setOnClickListener(v -> {
             if (neighbour.getFavor()) {
- //               mApiService.deleteFavoriNeighbour(neighbour);
+//                mApiService.deleteFavoriNeighbour(neighbour);
                 neighbour.setFavor(false);
                 selectStar.setImageResource(R.drawable.ic_star_white_24dp);
             } else {
- //               mApiService.createFavoriNeighbour(neighbour);
+//                mApiService.createFavoriNeighbour(neighbour);
                 neighbour.setFavor(true);
                 selectStar.setImageResource(R.drawable.ic_star_yellow_24dp);
             }
@@ -128,5 +126,14 @@ public class DetailNeighbourActivity extends AppCompatActivity {
                 .centerCrop()
                 .into(avatar);
     }
+
+    /**
+     * Used to navigate to this activity
+     * @param activity
+     */
+ //   public static void navigate(FragmentActivity activity) {
+ //       Intent intent = new Intent(activity, DetailNeighbourActivity.class);
+ //       ActivityCompat.startActivity(activity, intent, null);
+ //   }
 
 }

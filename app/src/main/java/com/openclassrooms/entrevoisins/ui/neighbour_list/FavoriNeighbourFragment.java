@@ -95,5 +95,4 @@ public class FavoriNeighbourFragment extends Fragment {
         initList();
     }
 
-
 }
