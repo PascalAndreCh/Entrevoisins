@@ -40,6 +40,8 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
     private NeighbourApiService mApiService;
     private String mNeighbourImage;
+    public static final String PROVENANCE = "PROVENANCE";
+    int provenanc = 1;
     // private boolean mFavor;
 
 
@@ -50,8 +52,15 @@ public class AddNeighbourActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mApiService = DI.getNeighbourApiService();
+
+        // test provenance, si suite à suppression favori, ne rien faire et ressortir sert à réinitialiser la liste
+        provenanc = getIntent().getIntExtra(PROVENANCE, 1);
+        if (provenanc == 3) {
+            finish();
+        }
         init();
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -67,7 +76,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
     }
 
     private void init() {
-// pas trouvé quand on y passe
         mNeighbourImage = randomImage();
         // mFavor = false;
         Glide.with(this).load(mNeighbourImage).placeholder(R.drawable.ic_account)

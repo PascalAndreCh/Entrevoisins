@@ -4,6 +4,7 @@ import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourA
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.PROVENANCE;
 
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,11 +60,15 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
                     //               mApiService.deleteFavoriNeighbour(neighbour);
                     neighbour.setFavor(false);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_white_24dp);
-                } else {
+                 } else {
                     //               mApiService.createFavoriNeighbour(neighbour);
                     neighbour.setFavor(true);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_yellow_24dp);
                 }
+                //TODO
+                Intent fakeIntent = new Intent (v.getContext(), AddNeighbourActivity.class);
+                fakeIntent.putExtra(PROVENANCE, 3);
+                v.getContext().startActivity(fakeIntent);
  //               EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
             }
         });

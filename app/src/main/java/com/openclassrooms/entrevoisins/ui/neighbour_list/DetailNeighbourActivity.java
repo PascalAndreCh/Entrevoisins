@@ -131,9 +131,9 @@ public class DetailNeighbourActivity extends AppCompatActivity {
      * Used to navigate to this activity
      * @param activity
      */
- //   public static void navigate(FragmentActivity activity) {
- //       Intent intent = new Intent(activity, DetailNeighbourActivity.class);
- //       ActivityCompat.startActivity(activity, intent, null);
- //   }
+//    public static void navigate(FragmentActivity activity) {
+//        Intent intent = new Intent(activity, DetailNeighbourActivity.class);
+//        ActivityCompat.startActivity(activity, intent, null);
+//    }
 
 }
