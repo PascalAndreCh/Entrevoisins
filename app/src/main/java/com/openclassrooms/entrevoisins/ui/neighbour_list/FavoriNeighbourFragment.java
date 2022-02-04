@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
+import com.openclassrooms.entrevoisins.events.DeleteFavNeighbourEvent;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
@@ -43,8 +44,6 @@ public class FavoriNeighbourFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mApiService = DI.getNeighbourApiService();
-        //TODO 02/02/22
-        //initList();
     }
 
     @Override
@@ -84,14 +83,13 @@ public class FavoriNeighbourFragment extends Fragment {
         EventBus.getDefault().unregister(this);
     }
 
-    // A enlever ?
     /**
      * Fired if the user clicks on a delete button
      * @param event
      */
     @Subscribe
-    public void onDeleteNeighbour(DeleteNeighbourEvent event) {
-//        mApiService.deleteFavNeighbour(event.neighbour);
+    public void onDeleteFavNeighbour(DeleteFavNeighbourEvent event) {
+        mApiService.deleteFavoriNeighbour(event.neighbour);
         initList();
     }
 

@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.ID_VOISIN;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.NEIGHBOUR_POSITION_KEY;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.PROVENANCE;
 
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.events.DeleteFavNeighbourEvent;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -30,7 +32,7 @@ import butterknife.ButterKnife;
 public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-
+    int idVal;
 
 
     public MyFavoriNeighbourRecyclerViewAdapter(List<Neighbour> items) {
@@ -60,16 +62,12 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
                     //               mApiService.deleteFavoriNeighbour(neighbour);
                     neighbour.setFavor(false);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_white_24dp);
+                    EventBus.getDefault().post(new DeleteFavNeighbourEvent(neighbour));
                  } else {
                     //               mApiService.createFavoriNeighbour(neighbour);
                     neighbour.setFavor(true);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_yellow_24dp);
                 }
-                //TODO
-                Intent fakeIntent = new Intent (v.getContext(), AddNeighbourActivity.class);
-                fakeIntent.putExtra(PROVENANCE, 3);
-                v.getContext().startActivity(fakeIntent);
- //               EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
             }
         });
 
@@ -80,6 +78,9 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
                 Intent detailNeighbourIntent = new Intent (v.getContext(), DetailNeighbourActivity.class);
                 detailNeighbourIntent.putExtra(NEIGHBOUR_POSITION_KEY, holder.getAdapterPosition());
                 detailNeighbourIntent.putExtra(PROVENANCE, 2);
+                long idVoiLg = neighbour.getId();
+                int idVoiInt = (int) idVoiLg;
+                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiInt);
                 v.getContext().startActivity(detailNeighbourIntent);
               }
         });

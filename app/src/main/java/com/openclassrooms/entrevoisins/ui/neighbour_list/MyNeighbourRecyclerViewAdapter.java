@@ -2,6 +2,7 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.ID_VOISIN;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.NEIGHBOUR_POSITION_KEY;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.PROVENANCE;
 
@@ -63,14 +64,15 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             }
         });
 
-
-        // holder.mNeighbourAvatar.setOnClickListener(new View.OnClickListener() {
           holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent detailNeighbourIntent = new Intent (v.getContext(), DetailNeighbourActivity.class);
                 detailNeighbourIntent.putExtra(NEIGHBOUR_POSITION_KEY, holder.getAdapterPosition());
                 detailNeighbourIntent.putExtra(PROVENANCE, 1);
+                long idVoiLg = neighbour.getId();
+                int idVoiInt = (int) idVoiLg;
+                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiInt);
                 v.getContext().startActivity(detailNeighbourIntent);
               }
         });

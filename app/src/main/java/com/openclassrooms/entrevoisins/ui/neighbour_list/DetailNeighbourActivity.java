@@ -31,6 +31,8 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
     public static final String NEIGHBOUR_POSITION_KEY = "NEIGHBOUR_POSITION_KEY";
     public static final String PROVENANCE = "PROVENANCE";
+    public static final String ID_VOISIN = "ID_VOISIN";
+
     Neighbour neighbour;
 
     @BindView(R.id.avatar)
@@ -68,30 +70,28 @@ public class DetailNeighbourActivity extends AppCompatActivity {
             finish();
             return;
         }
+
         // si clic sur liste favori, alors récupérer utilisateur dans liste des favoris
         // récupérer id du voisin
+        int id_voisin = getIntent().getIntExtra(ID_VOISIN, 1);
+        for (Neighbour i : mApiService.getNeighbours()) {
+            if (id_voisin == i.getId()) {
+                neighbour = i;
+                break;
+            }
+        }
+
         provenanc = getIntent().getIntExtra(PROVENANCE, 1);
 
         if (provenanc == 1) {
-            neighbour = mApiService.getNeighbours().get(position);
+//            neighbour = mApiService.getNeighbours().get(position);
 
         } else if (provenanc == 2) {
-            neighbour = mApiService.getFavoriNeighbour().get(position);
+//            neighbour = mApiService.getFavoriNeighbour().get(position);
 
         } else {
-            neighbour = mApiService.getNeighbours().get(position);
+//            neighbour = mApiService.getNeighbours().get(position);
         }
- //       switch (provenanc) {
- //           case 1 :
- //               Neighbour neighbour = mApiService.getNeighbours().get(position);
- //               break;
- //           case 2 :
- //               Neighbour neighbour = mApiService.getFavoriNeighbour().get(position);
- //               break;
- //           default :
- //               Neighbour neighbour = mApiService.getNeighbours().get(position);
- //       }
-
         name.setText(neighbour.getName());
         bisName.setText(neighbour.getName());
         address.setText(neighbour.getAddress());
@@ -99,7 +99,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
         aboutMe.setText(neighbour.getAboutMe());
         mAdresseInternet = "www.facebook.fr/" + neighbour.getName();
         facebookName.setText(mAdresseInternet);
-        // facebookName.setText("www.facebook.fr/"+neighbour.getName());
         if (neighbour.getFavor()) {
             selectStar.setImageResource(R.drawable.ic_star_yellow_24dp);
         } else {
