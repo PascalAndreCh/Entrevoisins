@@ -25,6 +25,11 @@ public class Neighbour {
     /** About me */
     private String aboutMe;
 
+    // TODO ajout d'un booléen favori oui = true, non = false
+    /** Favori */
+    private boolean favor;
+
+
     /**
      * Constructor
      * @param id
@@ -32,13 +37,14 @@ public class Neighbour {
      * @param avatarUrl
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
-                     String phoneNumber, String aboutMe) {
+                     String phoneNumber, String aboutMe, boolean favor) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
+        this.favor = favor;
     }
 
     public long getId() {
@@ -89,6 +95,12 @@ public class Neighbour {
         this.aboutMe = aboutMe;
     }
 
+    public boolean getFavor() { return favor; }
+
+    public void setFavor(boolean favor) { this.favor = favor; }
+
+
+    // TODO à quoi sert les 2 override en dessous ?
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -5,9 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
-public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
+public class ListFavoriNeighbourPagerAdapter extends FragmentPagerAdapter {
 
-    public ListNeighbourPagerAdapter(FragmentManager fm) {
+    public ListFavoriNeighbourPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
