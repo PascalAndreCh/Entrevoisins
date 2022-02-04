@@ -40,6 +40,8 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
     private NeighbourApiService mApiService;
     private String mNeighbourImage;
+    public static final String PROVENANCE = "PROVENANCE";
+    int provenanc = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,10 @@ public class AddNeighbourActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mApiService = DI.getNeighbourApiService();
+
         init();
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -78,16 +82,25 @@ public class AddNeighbourActivity extends AppCompatActivity {
         });
 
     }
-
+// clic sur le bouton de création
     @OnClick(R.id.create)
     void addNeighbour() {
+        long idNouveau = 0;
+        for (Neighbour i : mApiService.getNeighbours()) {
+            if (idNouveau < i.getId()) {
+              idNouveau = i.getId();
+            }
+        }
+        idNouveau++;
         Neighbour neighbour = new Neighbour(
-                System.currentTimeMillis(),
+                idNouveau,
+                //System.currentTimeMillis(),
                 nameInput.getEditText().getText().toString(),
                 mNeighbourImage,
                 addressInput.getEditText().getText().toString(),
                 phoneInput.getEditText().getText().toString(),
-                aboutMeInput.getEditText().getText().toString()
+                aboutMeInput.getEditText().getText().toString(),
+                false
         );
         mApiService.createNeighbour(neighbour);
         finish();
