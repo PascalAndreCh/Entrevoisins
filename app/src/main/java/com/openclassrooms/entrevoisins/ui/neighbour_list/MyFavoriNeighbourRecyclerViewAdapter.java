@@ -5,6 +5,7 @@ import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourA
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.PROVENANCE;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,7 +33,6 @@ import butterknife.ButterKnife;
 public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-    int idVal;
 
 
     public MyFavoriNeighbourRecyclerViewAdapter(List<Neighbour> items) {
