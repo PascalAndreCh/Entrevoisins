@@ -88,8 +88,6 @@ public class NeighbourFragment extends Fragment {
     @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
         mApiService.deleteNeighbour(event.neighbour);
-//        if (mApiService.getNeighbours().size() != 0) {
             initList();
-//        }
     }
 }
