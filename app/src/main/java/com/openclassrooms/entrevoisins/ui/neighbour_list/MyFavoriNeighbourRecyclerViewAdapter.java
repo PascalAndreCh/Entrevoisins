@@ -59,13 +59,13 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
             @Override
             public void onClick(View v) {
                 if (neighbour.getFavor()) {
-                    //               mApiService.deleteFavoriNeighbour(neighbour);
-                    neighbour.setFavor(false);
+                    // mApiService.deleteFavoriNeighbour(neighbour);
+                    // neighbour.setFavor(false);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_white_24dp);
                     EventBus.getDefault().post(new DeleteFavNeighbourEvent(neighbour));
                  } else {
-                    //               mApiService.createFavoriNeighbour(neighbour);
-                    neighbour.setFavor(true);
+                    // mApiService.createFavoriNeighbour(neighbour);
+                    // neighbour.setFavor(true);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_yellow_24dp);
                 }
             }

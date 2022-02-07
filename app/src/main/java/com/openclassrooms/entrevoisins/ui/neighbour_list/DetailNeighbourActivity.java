@@ -110,12 +110,12 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
         selectStar.setOnClickListener(v -> {
             if (neighbour.getFavor()) {
-//                mApiService.deleteFavoriNeighbour(neighbour);
-                neighbour.setFavor(false);
+                mApiService.deleteFavoriNeighbour(neighbour);
+//                neighbour.setFavor(false);
                 selectStar.setImageResource(R.drawable.ic_star_white_24dp);
             } else {
-//                mApiService.createFavoriNeighbour(neighbour);
-                neighbour.setFavor(true);
+                mApiService.createFavoriNeighbour(neighbour);
+//                neighbour.setFavor(true);
                 selectStar.setImageResource(R.drawable.ic_star_yellow_24dp);
             }
                 });
