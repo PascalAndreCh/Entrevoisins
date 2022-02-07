@@ -55,7 +55,8 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         if (j != 0) {
             return favoriNeighbour;
         } else {
-            return null;
+            favoriNeighbour.clear();
+            return favoriNeighbour ;
         }
     }
 
