@@ -79,8 +79,7 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
                 detailNeighbourIntent.putExtra(NEIGHBOUR_POSITION_KEY, holder.getAdapterPosition());
                 detailNeighbourIntent.putExtra(PROVENANCE, 2);
                 long idVoiLg = neighbour.getId();
-                int idVoiInt = (int) idVoiLg;
-                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiInt);
+                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiLg);
                 v.getContext().startActivity(detailNeighbourIntent);
               }
         });

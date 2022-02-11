@@ -76,8 +76,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 detailNeighbourIntent.putExtra(NEIGHBOUR_POSITION_KEY, holder.getAdapterPosition());
                 detailNeighbourIntent.putExtra(PROVENANCE, 1);
                 long idVoiLg = neighbour.getId();
-                int idVoiInt = (int) idVoiLg;
-                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiInt);
+                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiLg);
                 v.getContext().startActivity(detailNeighbourIntent);
               }
         });
