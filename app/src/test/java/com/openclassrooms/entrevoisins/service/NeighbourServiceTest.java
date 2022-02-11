@@ -11,8 +11,10 @@ import org.junit.runners.JUnit4;
 
 import java.util.List;
 
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test on Neighbour service
@@ -25,6 +27,7 @@ public class NeighbourServiceTest {
     @Before
     public void setup() {
         service = DI.getNewInstanceApiService();
+        service.deleteAllFavoriteNeighbour();
     }
 
     @Test
@@ -39,5 +42,27 @@ public class NeighbourServiceTest {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
+    }
+
+    @Test
+    public void getNeighbourFavoriteWithSuccess() {
+        Neighbour neighbour = service.getNeighbours().get(0); // On recupère le 1er voisin de la list des neighbours
+        assertTrue(service.getFavoriteNeighbour().size() == 0); // on verifie que la list de favori est vide
+        service.createFavoriteNeighbour(neighbour); // On ajoute ce voisin en favori
+        assertTrue(service.getFavoriteNeighbour().size() > 0); // on verifie que la list de favori n'est pas vide
+    }
+
+    @Test
+    public void addNeighbourFavoriteWithSuccess() {
+        assertEquals(0, service.getFavoriteNeighbour().size());
+        List<Neighbour> neighbours = service.getNeighbours();
+        service.createFavoriteNeighbour(neighbours.get(0));
+        assertEquals(1, service.getFavoriteNeighbour().size());
+        assertEquals(neighbours.get(0), service.getFavoriteNeighbour().get(0)); // On verifie que le voisin ajouté est bien le bon
+    }
+
+    @Test
+    public void deleteNeighbourFavoriteWithSuccess() {
+        //TODO
     }
 }

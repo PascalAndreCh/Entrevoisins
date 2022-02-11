@@ -38,30 +38,19 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
 
-
-    //TODO code rajouté en dessous
-    // création liste des favoris
-
     @Override
-    public List<Neighbour> getFavoriNeighbour () {
+    public List<Neighbour> getFavoriteNeighbour() {
         ArrayList<Neighbour> favoriNeighbour = new ArrayList<>();
-        int j = 0;
         for (Neighbour  i : neighbours) {
             if (i.getFavor()) {
                 favoriNeighbour.add(i);
-                j++;
             }
         }
-        if (j != 0) {
-            return favoriNeighbour;
-        } else {
-            favoriNeighbour.clear();
-            return favoriNeighbour ;
-        }
+        return favoriNeighbour;
     }
 
     @Override
-    public void createFavoriNeighbour (Neighbour neighbour) {
+    public void createFavoriteNeighbour(Neighbour neighbour) {
         neighbour.setFavor(true);
 //        la liste des favoris est recréée à chaque fois, donc, inutile de faire un add
 //        la modification du booléen dans la liste des voisins est suffisante
@@ -69,9 +58,16 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
     @Override
-    public void deleteFavoriNeighbour (Neighbour neighbour) {
+    public void deleteFavoriteNeighbour(Neighbour neighbour) {
         neighbour.setFavor(false);
 //        favoriNeighbour.remove(neighbour);
+    }
+
+    @Override
+    public void deleteAllFavoriteNeighbour() {
+        for (Neighbour neighbour: neighbours){
+            neighbour.setFavor(false);
+        }
     }
 
 
