@@ -5,6 +5,7 @@ import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourA
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.PROVENANCE;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,7 +33,6 @@ import butterknife.ButterKnife;
 public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-    int idVal;
 
 
     public MyFavoriNeighbourRecyclerViewAdapter(List<Neighbour> items) {
@@ -59,13 +59,13 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
             @Override
             public void onClick(View v) {
                 if (neighbour.getFavor()) {
-                    //               mApiService.deleteFavoriNeighbour(neighbour);
-                    neighbour.setFavor(false);
+                    // mApiService.deleteFavoriNeighbour(neighbour);
+                    // neighbour.setFavor(false);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_white_24dp);
                     EventBus.getDefault().post(new DeleteFavNeighbourEvent(neighbour));
                  } else {
-                    //               mApiService.createFavoriNeighbour(neighbour);
-                    neighbour.setFavor(true);
+                    // mApiService.createFavoriNeighbour(neighbour);
+                    // neighbour.setFavor(true);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_yellow_24dp);
                 }
             }
@@ -79,8 +79,7 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
                 detailNeighbourIntent.putExtra(NEIGHBOUR_POSITION_KEY, holder.getAdapterPosition());
                 detailNeighbourIntent.putExtra(PROVENANCE, 2);
                 long idVoiLg = neighbour.getId();
-                int idVoiInt = (int) idVoiLg;
-                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiInt);
+                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiLg);
                 v.getContext().startActivity(detailNeighbourIntent);
               }
         });

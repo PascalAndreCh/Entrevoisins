@@ -63,18 +63,12 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     @Override
     public void createFavoriNeighbour (Neighbour neighbour) {
         neighbour.setFavor(true);
-//        la liste des favoris est recréée à chaque fois, donc, inutile de faire un add
-//        la modification du booléen dans la liste des voisins est suffisante
-//        favoriNeighbour.add(neighbour);
     }
 
     @Override
     public void deleteFavoriNeighbour (Neighbour neighbour) {
         neighbour.setFavor(false);
-//        favoriNeighbour.remove(neighbour);
     }
-
-
 
 }
 

@@ -62,7 +62,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_neighbour);
+        setContentView(R.layout.activity_detail_neighboursave);
         ButterKnife.bind(this);
         mApiService = DI.getNeighbourApiService();
         int position = getIntent().getIntExtra(NEIGHBOUR_POSITION_KEY, -1);
@@ -73,7 +73,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
         // si clic sur liste favori, alors récupérer utilisateur dans liste des favoris
         // récupérer id du voisin
-        int id_voisin = getIntent().getIntExtra(ID_VOISIN, 1);
+        long id_voisin = getIntent().getLongExtra(ID_VOISIN, 1);
         for (Neighbour i : mApiService.getNeighbours()) {
             if (id_voisin == i.getId()) {
                 neighbour = i;
@@ -110,12 +110,12 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
         selectStar.setOnClickListener(v -> {
             if (neighbour.getFavor()) {
-//                mApiService.deleteFavoriNeighbour(neighbour);
-                neighbour.setFavor(false);
+                mApiService.deleteFavoriNeighbour(neighbour);
+//                neighbour.setFavor(false);
                 selectStar.setImageResource(R.drawable.ic_star_white_24dp);
             } else {
-//                mApiService.createFavoriNeighbour(neighbour);
-                neighbour.setFavor(true);
+                mApiService.createFavoriNeighbour(neighbour);
+//                neighbour.setFavor(true);
                 selectStar.setImageResource(R.drawable.ic_star_yellow_24dp);
             }
                 });

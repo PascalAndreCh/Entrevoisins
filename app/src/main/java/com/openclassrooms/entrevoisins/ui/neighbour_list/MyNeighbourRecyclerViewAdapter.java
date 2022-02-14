@@ -7,6 +7,7 @@ import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourA
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.PROVENANCE;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -75,8 +76,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 detailNeighbourIntent.putExtra(NEIGHBOUR_POSITION_KEY, holder.getAdapterPosition());
                 detailNeighbourIntent.putExtra(PROVENANCE, 1);
                 long idVoiLg = neighbour.getId();
-                int idVoiInt = (int) idVoiLg;
-                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiInt);
+                detailNeighbourIntent.putExtra(ID_VOISIN, idVoiLg);
                 v.getContext().startActivity(detailNeighbourIntent);
               }
         });

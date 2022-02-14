@@ -42,6 +42,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
     private String mNeighbourImage;
     public static final String PROVENANCE = "PROVENANCE";
     int provenanc = 1;
+    boolean favorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,19 +82,12 @@ public class AddNeighbourActivity extends AppCompatActivity {
         });
 
     }
-// clic sur le bouton de création
+
     @OnClick(R.id.create)
     void addNeighbour() {
-        long idNouveau = 0;
-        for (Neighbour i : mApiService.getNeighbours()) {
-            if (idNouveau < i.getId()) {
-              idNouveau = i.getId();
-            }
-        }
-        idNouveau++;
+
         Neighbour neighbour = new Neighbour(
-                idNouveau,
-                //System.currentTimeMillis(),
+                System.currentTimeMillis(),
                 nameInput.getEditText().getText().toString(),
                 mNeighbourImage,
                 addressInput.getEditText().getText().toString(),
