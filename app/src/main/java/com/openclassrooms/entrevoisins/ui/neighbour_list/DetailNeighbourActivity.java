@@ -50,7 +50,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_neighboursave);
+        setContentView(R.layout.activity_detail_neighbour);
         ButterKnife.bind(this);
         mApiService = DI.getNeighbourApiService();
         int position = getIntent().getIntExtra(NEIGHBOUR_POSITION_KEY, -1);
