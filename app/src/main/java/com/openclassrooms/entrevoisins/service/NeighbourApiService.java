@@ -30,10 +30,12 @@ public interface NeighbourApiService {
 
 
     // TODO
-    List<Neighbour> getFavoriNeighbour ();
+    List<Neighbour> getFavoriteNeighbour ();
 
-    void createFavoriNeighbour (Neighbour neighbour);
+    void createFavoriteNeighbour (Neighbour neighbour);
 
-    void deleteFavoriNeighbour (Neighbour neighbour);
+    void deleteFavoriteNeighbour (Neighbour neighbour);
+
+    void deleteAllFavoriteNeighbour();
 
 }

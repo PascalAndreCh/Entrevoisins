@@ -77,10 +77,17 @@ public class NeighboursListTest {
     public void myNeighboursList_click_shouldOpenNeighbourActivity() {
         Neighbour neighbour = DI.getNeighbourApiService().getNeighbours().get(3);
 
+        //On performe un clic à la position 3 sur la vue list_neighbours
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(3, click()));
 
+        //Check that the name is the right one
         onView(ViewMatchers.withId(R.id.name)).check(matches(withText(neighbour.getName())));
+    }
+
+    @Test
+    public void when_click_onfavoritebutton_then_favoritelist_should_be_not_empty() {
+        //Todo
     }
 
 }

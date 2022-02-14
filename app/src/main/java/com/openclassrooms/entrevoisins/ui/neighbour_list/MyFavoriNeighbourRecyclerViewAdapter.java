@@ -2,17 +2,13 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.ID_VOISIN;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.NEIGHBOUR_POSITION_KEY;
-import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.PROVENANCE;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.events.DeleteFavNeighbourEvent;
-import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import org.greenrobot.eventbus.EventBus;
@@ -59,13 +54,11 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
             @Override
             public void onClick(View v) {
                 if (neighbour.getFavor()) {
-                    // mApiService.deleteFavoriNeighbour(neighbour);
-                    // neighbour.setFavor(false);
+                    neighbour.setFavor(false);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_white_24dp);
                     EventBus.getDefault().post(new DeleteFavNeighbourEvent(neighbour));
                  } else {
-                    // mApiService.createFavoriNeighbour(neighbour);
-                    // neighbour.setFavor(true);
+                    neighbour.setFavor(true);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_yellow_24dp);
                 }
             }
@@ -77,7 +70,6 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
 
                 Intent detailNeighbourIntent = new Intent (v.getContext(), DetailNeighbourActivity.class);
                 detailNeighbourIntent.putExtra(NEIGHBOUR_POSITION_KEY, holder.getAdapterPosition());
-                detailNeighbourIntent.putExtra(PROVENANCE, 2);
                 long idVoiLg = neighbour.getId();
                 detailNeighbourIntent.putExtra(ID_VOISIN, idVoiLg);
                 v.getContext().startActivity(detailNeighbourIntent);
