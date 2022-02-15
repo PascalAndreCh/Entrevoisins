@@ -84,7 +84,7 @@ public class NeighboursListTest {
         //Check that the name is the right one
         onView(ViewMatchers.withId(R.id.name)).check(matches(withText(neighbour.getName())));
     }
-
+    
     @Test
     public void when_click_onfavoritebutton_then_favoritelist_should_be_not_empty() {
         //Todo
