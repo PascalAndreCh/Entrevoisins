@@ -45,6 +45,14 @@ public class NeighbourServiceTest {
     }
 
     @Test
+    public void createNeighbourWithSuccess () {
+        // teste la création d'un voisin
+        Neighbour newNeighbour = new Neighbour (13, "Pascal", "https://i.pravatar.cc/150?u=a042581f4e29026702d", "rue d'en face", "0721222324", "bonjour, je n'est rien a dire pour l'instant", false);
+        service.createNeighbour(newNeighbour);
+        assertTrue(service.getNeighbours().contains(newNeighbour));
+    }
+
+    @Test
     public void getNeighbourFavoriteWithSuccess() {
         Neighbour neighbour = service.getNeighbours().get(0); // On recupère le 1er voisin de la list des neighbours
         assertTrue(service.getFavoriteNeighbour().size() == 0); // on verifie que la list de favori est vide

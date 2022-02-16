@@ -11,6 +11,7 @@ import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
+import com.openclassrooms.entrevoisins.utils.DeleteViewActionFav;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -23,6 +24,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static com.openclassrooms.entrevoisins.di.DI.service;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -36,6 +38,7 @@ public class NeighboursListTest {
 
     // This is fixed
     private static int ITEMS_COUNT = 12;
+    private static int ITEMS_FAV_COUNT = 3;
 
     private ListNeighbourActivity mActivity;
 
@@ -68,9 +71,21 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
         onView(ViewMatchers.withId(R.id.list_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewActionFav()));
         // Then : the number of element is 11
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+    }
+
+    @Test
+    public void myFavoriteNeighboursList_deleteAction_shouldRemoveItem() {
+        // suppression d'un favori et réaffichage liste si clic sur etoile dans liste des favoris
+        // Given : We remove the element at position 2
+        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(ITEMS_FAV_COUNT));
+        // When perform a click on a star icon
+        onView(ViewMatchers.withId(R.id.list_favori_neighbours))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
+        // Then : the number of element is 2
+        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(ITEMS_FAV_COUNT-1));
     }
 
     @Test
@@ -87,6 +102,13 @@ public class NeighboursListTest {
     
     @Test
     public void when_click_onfavoritebutton_then_favoritelist_should_be_not_empty() {
+        service.deleteAllFavoriteNeighbour();  // on vide la liste des favoris
+        ITEMS_FAV_COUNT = 0; // on met le compteur des favori à 0
+        Neighbour neighbour = DI.getNeighbourApiService().getNeighbours().get(0); // on récupère le premier voisin
+        onView(ViewMatchers.withId(R.id.starSelect)) // dans l'écran détail, on clic sur l'étoile
+                .perform(RecyclerViewActions.actionOnItemAtPosition(R.id.starSelect, click()));
+        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(ITEMS_FAV_COUNT+1)); // on vérifie qu'un favori a été créé
+
         //Todo
     }
 
