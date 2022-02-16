@@ -40,7 +40,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
     private NeighbourApiService mApiService;
     private String mNeighbourImage;
-    public static final String PROVENANCE = "PROVENANCE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
