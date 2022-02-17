@@ -2,7 +2,6 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.ID_VOISIN;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.NEIGHBOUR_POSITION_KEY;
-
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
