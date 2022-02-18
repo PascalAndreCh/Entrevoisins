@@ -52,14 +52,14 @@ public class MyFavoriNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<M
         holder.mStarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (neighbour.getFavor()) {
+            //    if (neighbour.getFavor() == true) {
                     neighbour.setFavor(false);
                     holder.mStarButton.setImageResource(R.drawable.ic_star_white_24dp);
                     EventBus.getDefault().post(new DeleteFavNeighbourEvent(neighbour));
-                 } else {
-                    neighbour.setFavor(true);
-                    holder.mStarButton.setImageResource(R.drawable.ic_star_yellow_24dp);
-                }
+            //     } else {
+            //        neighbour.setFavor(true);
+            //        holder.mStarButton.setImageResource(R.drawable.ic_star_yellow_24dp);
+            //     }
             }
         });
 

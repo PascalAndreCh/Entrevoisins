@@ -1,6 +1,15 @@
 
 package com.openclassrooms.entrevoisins.neighbour_list;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
+import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
+import static org.hamcrest.core.IsNull.notNullValue;
+
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -9,7 +18,6 @@ import android.support.test.runner.AndroidJUnit4;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.FavoriNeighbourFragment;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 import com.openclassrooms.entrevoisins.utils.DeleteViewActionFav;
@@ -18,16 +26,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
-import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static com.openclassrooms.entrevoisins.di.DI.service;
-import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
-import static org.hamcrest.core.IsNull.notNullValue;
 
 
 
@@ -89,12 +87,16 @@ public class NeighboursListTest {
         // suppression d'un favori et réaffichage liste si clic sur etoile dans liste des favoris
         // Given : We remove the element at position 2
         // voir ordre d'exécution des tests ? au départ 3 fav, une création testée plus bas et 4 ici ???
+
+        //onView(ViewMatchers.withId(R.id.tabItem2))
+        //        .perform(click());
+
         onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(4));
         // When perform a click on a star icon
         onView(ViewMatchers.withId(R.id.list_favori_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewActionFav()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewActionFav()));
         // Then : the number of element is 3
-        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(4-1));
+        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(3));
     }
 
     @Test
@@ -107,6 +109,9 @@ public class NeighboursListTest {
 
         //Check that the name is the right one
         onView(ViewMatchers.withId(R.id.name)).check(matches(withText(neighbour.getName())));
+
+        onView(ViewMatchers.withId(R.id.button_back)) // dans l'écran détail, on clic sur le bouton retour pour revenir dans l'activité précédente
+                .perform(click());
     }
 
     @Test

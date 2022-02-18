@@ -4,6 +4,8 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.ID_VOISIN;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.DetailNeighbourActivity.NEIGHBOUR_POSITION_KEY;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -26,6 +30,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+// import javax.swing.*;
 
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
@@ -54,12 +60,28 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (neighbour.getFavor()) {
-                    EventBus.getDefault().post(new DeleteFavNeighbourEvent(neighbour));
-                }
-                EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
+
+                AlertDialog.Builder myPopup = new AlertDialog.Builder(v.getContext());
+                myPopup.setMessage("Voulez-vous vraiment supprimer ce voisin ?");
+                myPopup.setTitle("****** ATTENTION ******");
+                myPopup.setPositiveButton(" OUI ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (neighbour.getFavor()) {
+                            EventBus.getDefault().post(new DeleteFavNeighbourEvent(neighbour));
+                        }
+                        EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
+                    }
+                });
+                myPopup.setNegativeButton(" NON ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(v.getContext(), "ABANDON", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                myPopup.show();
             }
-        });
+            });
 
           holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,4 +114,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             ButterKnife.bind(this, view);
         }
     }
+
 }
+
