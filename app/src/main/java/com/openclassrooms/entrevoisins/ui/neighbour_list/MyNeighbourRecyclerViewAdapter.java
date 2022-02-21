@@ -62,7 +62,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             public void onClick(View v) {
 
                 AlertDialog.Builder myPopup = new AlertDialog.Builder(v.getContext());
-                myPopup.setMessage("Voulez-vous vraiment supprimer ce voisin ?");
+                myPopup.setMessage("Voulez-vous vraiment supprimer "+neighbour.getName()+" ?");
                 myPopup.setTitle("****** ATTENTION ******");
                 myPopup.setPositiveButton(" OUI ", new DialogInterface.OnClickListener() {
                     @Override
