@@ -1,5 +1,10 @@
 package com.openclassrooms.entrevoisins.service;
 
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -11,23 +16,18 @@ import org.junit.runners.JUnit4;
 
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
 /**
  * Unit test on Neighbour service
  */
 @RunWith(JUnit4.class)
 public class NeighbourServiceTest {
-    int indice = -1;
-    int numberFav = 0;
 
     private NeighbourApiService service;
 
     @Before
     public void setup() {
         service = DI.getNewInstanceApiService();
+        service.deleteAllFavoriteNeighbour();
     }
 
     @Test
@@ -45,39 +45,36 @@ public class NeighbourServiceTest {
     }
 
     @Test
+    public void createNeighbourWithSuccess () {
+        Neighbour newNeighbour = new Neighbour (13, "Pascal", "https://i.pravatar.cc/150?u=a042581f4e29026702d", "rue d'en face", "0721222324", "bonjour, je n'est rien a dire pour l'instant", false);
+        service.createNeighbour(newNeighbour);
+        assertTrue(service.getNeighbours().contains(newNeighbour));
+    }
+
+    @Test
     public void getNeighbourFavoriteWithSuccess() {
+        Neighbour neighbour = service.getNeighbours().get(0); // On recupère le 1er voisin de la list des neighbours
+        assertTrue(service.getFavoriteNeighbour().size() == 0); // on verifie que la list de favori est vide
+        service.createFavoriteNeighbour(neighbour); // On ajoute ce voisin en favori
+        assertTrue(service.getFavoriteNeighbour().size() > 0); // on verifie que la list de favori n'est pas vide
+    }
 
-        for ( int i = 0; i < service.getNeighbours().size(); i++) {
-                if (service.getNeighbours().get(i).getFavor() == false) {
-                    if (indice == -1) {
-                        indice = i; // on récupère l'indice du premier voisin qui n'est pas favori
-                    }
-                } else {
-                        numberFav++; // on récupère le nombre de favori déjà existants s'il y en a
-                    }
-        }
+    @Test
+    public void addNeighbourFavoriteWithSuccess() {
+        assertEquals(0, service.getFavoriteNeighbour().size()); // on vérifie que la liste de favori est vide
+        List<Neighbour> neighbours = service.getNeighbours(); // on récupère la liste des voisins
+        service.createFavoriteNeighbour(neighbours.get(0)); // on crée un favori en prenant le premier voisin
+        assertEquals(1, service.getFavoriteNeighbour().size()); // on vérifie qu'un favori a bien été créé
+        assertEquals(neighbours.get(0), service.getFavoriteNeighbour().get(0)); // On verifie que le voisin ajouté est bien le bon
+    }
 
-        if (indice == -1) {
-            assertTrue(service.getFavoriNeighbour().size() == service.getNeighbours().size()); // si tous les voisins sont
-            // des favoris, on vérifie que la taille des 2 listes est identique
-        } else if (numberFav == 0) {
-            assertTrue(service.getFavoriNeighbour().size() == 0); // si le nombre de favoris est nul,
-            // on vérifie que la liste des favoris est vide
-        } else {
-            assertFalse(service.getFavoriNeighbour().size() == 0); // sinon on vérifie que la liste
-            // des favoris est non vide car il y a au moins un favori
-
-            assertTrue(service.getFavoriNeighbour().size() == numberFav); // on vérifie que tous les voisins pointés
-            // comme favori sont bien comptabilisés dans la liste des favoris
-        }
-
-        if (indice != -1) {
-            // si la liste de favoris ne contient pas la totalité des voisins, on y ajoute celui retenu
-            Neighbour neighbour = service.getNeighbours().get(indice);
-            service.createFavoriNeighbour(neighbour);
-            assertTrue(service.getFavoriNeighbour().size() == numberFav+1); // on vérifie que le nouveau favori
-            // a bien été crée, donc que la liste des favoris a bien un éléments de plus
-        }
-     }
-
+    @Test
+    public void deleteNeighbourFavoriteWithSuccess() {
+        service.createFavoriteNeighbour(service.getNeighbours().get(0)); // on crée 3 favoris
+        service.createFavoriteNeighbour(service.getNeighbours().get(3));
+        service.createFavoriteNeighbour(service.getNeighbours().get(7));
+        Neighbour favoriteNeighbourToDelete = service.getFavoriteNeighbour().get(1);
+        service.deleteNeighbour(favoriteNeighbourToDelete); // on supprime le 2eme;
+        assertFalse(service.getFavoriteNeighbour().contains(favoriteNeighbourToDelete)); // on vérifie qu'il n'est plus dans la liste des favoris
+    }
 }

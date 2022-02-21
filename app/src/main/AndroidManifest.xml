@@ -29,6 +29,10 @@
             android:name=".ui.neighbour_list.DetailNeighbourActivity"
             android:theme="@style/AppTheme.NoActionBar">
          </activity>
+        <activity
+            android:name=".ui.neighbour_list.DetailNeighbourActivityEdit"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
