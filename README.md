@@ -20,6 +20,9 @@ Dans chacun des onglets, vous pouvez accéder au détail d'un voisin en cliquant
 Voisin Favori, étoile jaune. Voisin non favori, étoile blanche. Clic sur l'étoile pour modifier son status
 ![](ImagesEntrevoisins/ent08.jpg)  
 
+Il est possible de modifier toutes les données. Ici, nous changeons le numéro de téléphone.
+![](ImagesEntrevoisins/ent24.jpg) 
+
 Vous pouvez rajouter ou supprimer des favoris. Caroline n'était pas dans les favoris, maintenant elle y est.  
 ![](ImagesEntrevoisins/ent09.jpg) 
 
@@ -39,6 +42,12 @@ Elodie vient d'être retirée de cette liste.
 Dans l'onglet "MY NEIGHBOURS", un clic sur la poubelle supprime le voisin du fichier. Si ce voisin est aussi
 un favori, il sera également supprimé de cette liste.    
 ![](ImagesEntrevoisins/ent14.jpg)    
+
+Une boite de dialogue apparait, vous pouvez soit confirmer la suppression, soit la refuser
+![](ImagesEntrevoisins/ent22.jpg) 
+
+En cas de refus, le message "abandon" s'affiche quelques secondes, sinon, le voisin est supprimé
+![](ImagesEntrevoisins/ent23.jpg) 
 
 Dans cet exemple, Dan a été supprimé.    
 ![](ImagesEntrevoisins/ent15.jpg) 
