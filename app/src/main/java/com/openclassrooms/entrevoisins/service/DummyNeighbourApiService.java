@@ -37,11 +37,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         neighbours.add(neighbour);
     }
 
-
-
-    //TODO code rajouté en dessous
-    // création liste des favoris
-
     @Override
     public List<Neighbour> getFavoriteNeighbour () {
         ArrayList<Neighbour> favoriNeighbour = new ArrayList<>();
@@ -69,7 +64,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
             neighbour.setFavor(false);
         }
     }
-
 
 }
 

@@ -51,7 +51,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
         init();
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

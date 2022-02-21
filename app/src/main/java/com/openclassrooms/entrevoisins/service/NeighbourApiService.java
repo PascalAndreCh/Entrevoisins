@@ -28,8 +28,6 @@ public interface NeighbourApiService {
      */
     void createNeighbour(Neighbour neighbour);
 
-
-    // TODO
     List<Neighbour> getFavoriteNeighbour ();
 
     void createFavoriteNeighbour (Neighbour neighbour);

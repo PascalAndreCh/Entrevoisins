@@ -17,7 +17,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DetailNeighbourActivity extends AppCompatActivity {
-    // TODO
 
     public static final String NEIGHBOUR_POSITION_KEY = "NEIGHBOUR_POSITION_KEY";
     public static final String ID_VOISIN = "ID_VOISIN";
@@ -59,8 +58,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
             return;
         }
 
-        // si clic sur liste favori, alors récupérer utilisateur dans liste des favoris
-        // récupérer id du voisin
         long id_voisin = getIntent().getLongExtra(ID_VOISIN, 1);
         for (Neighbour i : mApiService.getNeighbours()) {
             if (id_voisin == i.getId()) {
@@ -82,7 +79,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
             selectStar.setImageResource(R.drawable.ic_star_white_24dp);
         }
 
-
         backButton.setOnClickListener(v -> finish());
 
         selectStar.setOnClickListener(v -> {
@@ -100,14 +96,5 @@ public class DetailNeighbourActivity extends AppCompatActivity {
                 .centerCrop()
                 .into(avatar);
     }
-
-    /**
-     * Used to navigate to this activity
-     * @param activity
-     */
-//    public static void navigate(FragmentActivity activity) {
-//        Intent intent = new Intent(activity, DetailNeighbourActivity.class);
-//        ActivityCompat.startActivity(activity, intent, null);
-//    }
 
 }

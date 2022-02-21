@@ -23,7 +23,6 @@ import java.util.List;
 
 
 public class FavoriNeighbourFragment extends Fragment {
-    // TODO
 
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
