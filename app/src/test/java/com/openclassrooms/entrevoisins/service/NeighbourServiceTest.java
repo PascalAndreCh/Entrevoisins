@@ -1,5 +1,10 @@
 package com.openclassrooms.entrevoisins.service;
 
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -10,11 +15,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.List;
-
-import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test on Neighbour service
@@ -46,7 +46,6 @@ public class NeighbourServiceTest {
 
     @Test
     public void createNeighbourWithSuccess () {
-        // teste la création d'un voisin
         Neighbour newNeighbour = new Neighbour (13, "Pascal", "https://i.pravatar.cc/150?u=a042581f4e29026702d", "rue d'en face", "0721222324", "bonjour, je n'est rien a dire pour l'instant", false);
         service.createNeighbour(newNeighbour);
         assertTrue(service.getNeighbours().contains(newNeighbour));

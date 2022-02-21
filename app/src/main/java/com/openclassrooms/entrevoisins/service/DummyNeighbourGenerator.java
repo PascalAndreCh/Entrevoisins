@@ -8,8 +8,6 @@ import java.util.List;
 
 public abstract class DummyNeighbourGenerator {
 
-    // TODO Ajout booléen favori
-
     public static List<Neighbour> DUMMY_NEIGHBOURS;
 
     static {

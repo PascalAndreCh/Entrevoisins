@@ -20,7 +20,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DetailNeighbourActivity extends AppCompatActivity {
-    // TODO
 
     public static final String NEIGHBOUR_POSITION_KEY = "NEIGHBOUR_POSITION_KEY";
     public static final String ID_VOISIN = "ID_VOISIN";
@@ -61,8 +60,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
             return;
         }
 
-        // si clic sur liste favori, alors récupérer utilisateur dans liste des favoris
-        // récupérer id du voisin
         long id_voisin = getIntent().getLongExtra(ID_VOISIN, 1);
         for (Neighbour i : mApiService.getNeighbours()) {
             if (id_voisin == i.getId()) {
@@ -71,21 +68,17 @@ public class DetailNeighbourActivity extends AppCompatActivity {
             }
         }
 
-        //bisName.setText(neighbour.getName());
         EditText nam = (EditText) findViewById(R.id.nameBisEdit);
         nam.setText(neighbour.getName());
 
         name.setText(neighbour.getName());
 
-        //textAddress.setText(neighbour.getAddress());
         EditText adr = (EditText) findViewById(R.id.addressEdit);
         adr.setText(neighbour.getAddress());
 
-        // phoneNumber.setText(neighbour.getPhoneNumber());
         EditText tel = (EditText) findViewById(R.id.phoneNumberEdit);
         tel.setText(neighbour.getPhoneNumber());
 
-        // MeAbout.setText(neighbour.getAboutMe());
         EditText me = (EditText) findViewById(R.id.aboutMeEdit);
         me.setText(neighbour.getAboutMe());
 
@@ -96,7 +89,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
         } else {
             selectStar.setImageResource(R.drawable.ic_star_white_24dp);
         }
-
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,16 +118,5 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
 
     }
-
-    /**
-     * Used to navigate to this activity
-     * @param activity
-     */
-//    public static void navigate(FragmentActivity activity) {
-//        Intent intent = new Intent(activity, DetailNeighbourActivity.class);
-//        ActivityCompat.startActivity(activity, intent, null);
-//    }
-
-
 
 }

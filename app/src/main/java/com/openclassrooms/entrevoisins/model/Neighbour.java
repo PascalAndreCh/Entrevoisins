@@ -25,7 +25,6 @@ public class Neighbour {
     /** About me */
     private String aboutMe;
 
-    // TODO ajout d'un booléen favori oui = true, non = false
     /** Favori */
     private boolean favor;
 

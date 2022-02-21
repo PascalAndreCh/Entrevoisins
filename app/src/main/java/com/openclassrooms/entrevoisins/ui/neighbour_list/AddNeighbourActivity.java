@@ -51,7 +51,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
         init();
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -77,7 +76,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
                 addButton.setEnabled(s.length() > 0);
             }
         });
-
     }
 
     @OnClick(R.id.create)

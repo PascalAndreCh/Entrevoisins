@@ -31,7 +31,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-// import javax.swing.*;
 
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
@@ -64,7 +63,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 AlertDialog.Builder myPopup = new AlertDialog.Builder(v.getContext());
                 myPopup.setMessage("Voulez-vous vraiment supprimer "+neighbour.getName()+" ?");
                 myPopup.setTitle("****** ATTENTION ******");
-                myPopup.setPositiveButton(" OUI ", new DialogInterface.OnClickListener() {
+                myPopup.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (neighbour.getFavor()) {
@@ -73,7 +72,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                         EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
                     }
                 });
-                myPopup.setNegativeButton(" NON ", new DialogInterface.OnClickListener() {
+                myPopup.setNegativeButton("NON", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(v.getContext(), "ABANDON", Toast.LENGTH_SHORT).show();
