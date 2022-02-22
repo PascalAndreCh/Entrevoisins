@@ -28,7 +28,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
-
 /**
  * Test class for list of neighbours
  */
@@ -79,7 +78,7 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
         // Then : the number of element is 11
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT - 1));
     }
 
     @Test
@@ -94,7 +93,7 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.list_favori_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewActionFav()));
         // Then : the number of element is 3
-        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(ITEMS_FAV_COUNT-1));
+        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(ITEMS_FAV_COUNT - 1));
         ITEMS_FAV_COUNT--;
     }
 
@@ -117,8 +116,8 @@ public class NeighboursListTest {
                 .perform(click());
         onView(ViewMatchers.withId(R.id.button_back)) // dans l'écran détail, on clic sur le bouton retour pour revenir dans l'activité précédente
                 .perform(click());
-        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(ITEMS_FAV_COUNT+1)); // on vérifie qu'un favori a été créé
+        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(ITEMS_FAV_COUNT + 1)); // on vérifie qu'un favori a été créé
         ITEMS_FAV_COUNT++;
-     }
+    }
 
 }

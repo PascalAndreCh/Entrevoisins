@@ -14,6 +14,7 @@ public class DeleteFavNeighbourEvent {
 
     /**
      * Constructor.
+     *
      * @param neighbour
      */
     public DeleteFavNeighbourEvent(Neighbour neighbour) {

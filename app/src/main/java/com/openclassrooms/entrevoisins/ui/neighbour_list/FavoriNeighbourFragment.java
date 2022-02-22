@@ -31,6 +31,7 @@ public class FavoriNeighbourFragment extends Fragment {
 
     /**
      * Create and return a new instance
+     *
      * @return @{@link FavoriNeighbourFragment}
      */
     public static FavoriNeighbourFragment newInstance() {
@@ -83,6 +84,7 @@ public class FavoriNeighbourFragment extends Fragment {
 
     /**
      * Fired if the user clicks on a star button
+     *
      * @param event
      */
     @Subscribe
