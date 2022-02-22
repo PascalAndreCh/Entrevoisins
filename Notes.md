@@ -7,8 +7,8 @@
 ### Notes
 
 deux seuls écrans sont indiqués dans la note de cadrage.  
-![](ImagesEntrevoisins/Note01.jpg)
-![](ImagesEntrevoisins/Note02.jpg)
+![](ImagesEntrevoisins/Note01.png)
+![](ImagesEntrevoisins/Note02.png)
 
 - l'écran de la liste des favoris n'est pas décrit.
   - Faut il conserver les corbeilles et rendre les voisins supprimable depuis la liste des favoris ou non ?

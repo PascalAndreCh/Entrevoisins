@@ -11,34 +11,34 @@ Cette application permet je gérer une liste de voisins, contenant leur photo, n
 ### Récupérer le projet Entrevoisins
 - aller sur le repositorie PascalAndreCh/Entrevoisins (1)
 - copier l'adresse du code ou télécharger le fichier Download.zip (2et3 ou 4)
-![](ImagesEntrevoisins/github.jpg) 
+![](ImagesEntrevoisins/github.png) 
 ![]()
 
 Cloner le projet.  
-![](ImagesEntrevoisins/ent02.jpg)  
+![](ImagesEntrevoisins/ent02.png)  
 
 Ou dézipper le fichier.  
-![](ImagesEntrevoisins/ent01.jpg)  
+![](ImagesEntrevoisins/ent01.png)  
 ![]()
 
 
 **Ouvrir le projet dans Android Studio.**
-![](ImagesEntrevoisins/ent03.jpg)  
+![](ImagesEntrevoisins/ent03.png)  
 
 Lancer les Tests unitaires. Sélectionner "NeighbourServiceTest" et cliquer sur RUN (A1 et A2, ou B1 et B2).  
-![](ImagesEntrevoisins/ent25.jpg)   
+![](ImagesEntrevoisins/ent25.png)   
 
 Les Tests unitaires passent.
-![](ImagesEntrevoisins/ent26.jpg)  
+![](ImagesEntrevoisins/ent26.png)  
 
 Lancer les tests instrumentés. Sélectionner "NeighbourListTest" et Cliquer sur RUN (A1 et A2, ou B1 et B2).
-![](ImagesEntrevoisins/ent27.jpg)  
+![](ImagesEntrevoisins/ent27.png)  
 
 Les tests instrumentés passent.
-![](ImagesEntrevoisins/ent28.jpg)  
+![](ImagesEntrevoisins/ent28.png)  
 
 Lancer l'application en sélectionnant APP et en cliquant sur RUN.
-![](ImagesEntrevoisins/ent04.jpg) 
+![](ImagesEntrevoisins/ent04.png) 
 
 ![]()
 
