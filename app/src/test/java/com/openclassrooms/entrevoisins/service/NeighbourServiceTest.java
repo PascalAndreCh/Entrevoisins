@@ -45,8 +45,8 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void createNeighbourWithSuccess () {
-        Neighbour newNeighbour = new Neighbour (13, "Pascal", "https://i.pravatar.cc/150?u=a042581f4e29026702d", "rue d'en face", "0721222324", "bonjour, je n'est rien a dire pour l'instant", false);
+    public void createNeighbourWithSuccess() {
+        Neighbour newNeighbour = new Neighbour(13, "Pascal", "https://i.pravatar.cc/150?u=a042581f4e29026702d", "rue d'en face", "0721222324", "bonjour, je n'est rien a dire pour l'instant", false);
         service.createNeighbour(newNeighbour);
         assertTrue(service.getNeighbours().contains(newNeighbour));
     }

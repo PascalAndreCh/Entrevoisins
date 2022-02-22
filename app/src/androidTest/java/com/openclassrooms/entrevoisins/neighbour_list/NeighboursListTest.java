@@ -96,7 +96,7 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.list_favori_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewActionFav()));
         // Then : the number of element is 3
-        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(ITEMS_FAV_COUNT-1));
+        onView(ViewMatchers.withId(R.id.list_favori_neighbours)).check(withItemCount(ITEMS_FAV_COUNT - 1));
         ITEMS_FAV_COUNT--;
     }
 

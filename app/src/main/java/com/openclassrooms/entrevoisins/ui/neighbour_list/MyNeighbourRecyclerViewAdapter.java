@@ -61,7 +61,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             public void onClick(View v) {
 
                 AlertDialog.Builder myPopup = new AlertDialog.Builder(v.getContext());
-                myPopup.setMessage("Voulez-vous vraiment supprimer "+neighbour.getName()+" ?");
+                myPopup.setMessage("Voulez-vous vraiment supprimer " + neighbour.getName() + " ?");
                 myPopup.setTitle("****** ATTENTION ******");
                 myPopup.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
                     @Override
@@ -80,17 +80,17 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 });
                 myPopup.show();
             }
-            });
+        });
 
-          holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent detailNeighbourIntent = new Intent (v.getContext(), DetailNeighbourActivity.class);
+                Intent detailNeighbourIntent = new Intent(v.getContext(), DetailNeighbourActivity.class);
                 detailNeighbourIntent.putExtra(NEIGHBOUR_POSITION_KEY, holder.getAdapterPosition());
                 long idVoiLg = neighbour.getId();
                 detailNeighbourIntent.putExtra(ID_VOISIN, idVoiLg);
                 v.getContext().startActivity(detailNeighbourIntent);
-              }
+            }
         });
 
     }

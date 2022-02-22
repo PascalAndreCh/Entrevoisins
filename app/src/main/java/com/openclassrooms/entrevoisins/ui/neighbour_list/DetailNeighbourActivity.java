@@ -51,7 +51,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_neighbour_edit);
+        setContentView(R.layout.activity_detail_neighbour);
         ButterKnife.bind(this);
         mApiService = DI.getNeighbourApiService();
         int position = getIntent().getIntExtra(NEIGHBOUR_POSITION_KEY, -1);
@@ -109,7 +109,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
                 mApiService.createFavoriteNeighbour(neighbour);
                 selectStar.setImageResource(R.drawable.ic_star_yellow_24dp);
             }
-                });
+        });
 
         Glide.with(this)
                 .load(neighbour.getAvatarUrl())

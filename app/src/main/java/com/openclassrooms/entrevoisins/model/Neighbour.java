@@ -7,30 +7,45 @@ import java.util.Objects;
  */
 public class Neighbour {
 
-    /** Identifier */
+    /**
+     * Identifier
+     */
     private long id;
 
-    /** Full name */
+    /**
+     * Full name
+     */
     private String name;
 
-    /** Avatar */
+    /**
+     * Avatar
+     */
     private String avatarUrl;
 
-    /** Adress */
+    /**
+     * Adress
+     */
     private String address;
 
-    /** Phone number */
+    /**
+     * Phone number
+     */
     private String phoneNumber;
 
-    /** About me */
+    /**
+     * About me
+     */
     private String aboutMe;
 
-    /** Favori */
+    /**
+     * Favori
+     */
     private boolean favor;
 
 
     /**
      * Constructor
+     *
      * @param id
      * @param name
      * @param avatarUrl
@@ -94,12 +109,14 @@ public class Neighbour {
         this.aboutMe = aboutMe;
     }
 
-    public boolean getFavor() { return favor; }
+    public boolean getFavor() {
+        return favor;
+    }
 
-    public void setFavor(boolean favor) { this.favor = favor; }
+    public void setFavor(boolean favor) {
+        this.favor = favor;
+    }
 
-
-    // TODO à quoi sert les 2 override en dessous ?
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
