@@ -56,7 +56,7 @@ public class FavoriNeighbourFragment extends Fragment {
     }
 
     /**
-     * Init the List of neighbours
+     * Init the List of favor neighbours
      */
     private void initList() {
         mNeighbours = mApiService.getFavoriteNeighbour();
@@ -82,7 +82,7 @@ public class FavoriNeighbourFragment extends Fragment {
     }
 
     /**
-     * Fired if the user clicks on a delete button
+     * Fired if the user clicks on a star button
      * @param event
      */
     @Subscribe
