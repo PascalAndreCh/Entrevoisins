@@ -89,7 +89,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
                 mApiService.createFavoriteNeighbour(neighbour);
                 selectStar.setImageResource(R.drawable.ic_star_yellow_24dp);
             }
-                });
+        });
 
         Glide.with(this)
                 .load(neighbour.getAvatarUrl())

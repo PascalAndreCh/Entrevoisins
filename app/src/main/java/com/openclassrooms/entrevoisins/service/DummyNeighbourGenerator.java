@@ -37,7 +37,7 @@ public abstract class DummyNeighbourGenerator {
                         "+33 6 86 56 90 14", "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner (11) !J'aime les jeux de cartes tels la belote et le tarot..", false),
                 new Neighbour(12, "Ludovic", "https://i.pravatar.cc/150?u=a042581f3e39026702d", "Saint-Pierre-du-Mont12 ; 5km",
                         "+33 6 86 55 90 14", "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner (12) !J'aime les jeux de cartes tels la belote et le tarot..", false)
-                );
+        );
     }
 
     static List<Neighbour> generateNeighbours() {
